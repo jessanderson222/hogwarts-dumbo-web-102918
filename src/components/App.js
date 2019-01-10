@@ -13,17 +13,12 @@ class App extends Component {
 
   changeHandler = e => {
     let search = e.target.value;
-    let newArr = [...this.state.hogArr].filter(hog =>
-      hog.name.includes(search)
+    let newArr = [...hogs].filter(hog =>
+      hog.name.toUpperCase().includes(search.toUpperCase())
     );
     this.setState({
       hogArr: newArr
     });
-    if (e.target.value === "") {
-      this.setState({
-        hogArr: hogs
-      });
-    }
   };
   hogComponentArray = () => {
     return this.state.hogArr.map(hog => {
